@@ -512,78 +512,79 @@
 
     <!-- JavaScript for Header, Filters & Pagination -->
     <script>
-        // Header scroll effect
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+        // // Header scroll effect
+        // const header = document.getElementById('main-header');
+        // window.addEventListener('scroll', () => {
+        //     if (window.scrollY > 50) {
+        //         header.classList.add('scrolled');
+        //     } else {
+        //         header.classList.remove('scrolled');
+        //     }
+        // });
 
-        // Mobile menu toggle
-        const mobileBtn = document.querySelector('.mobile-menu-btn');
-        const nav = document.querySelector('nav');
-        if (mobileBtn) {
-            mobileBtn.addEventListener('click', () => {
-                nav.classList.toggle('mobile-open');
-            });
-        }
+        // // Mobile menu toggle
+        // const mobileBtn = document.querySelector('.mobile-menu-btn');
+        // const nav = document.querySelector('nav');
+        // if (mobileBtn) {
+        //     mobileBtn.addEventListener('click', () => {
+        //         nav.classList.toggle('mobile-open');
+        //     });
+        // }
 
-        // News Filtering (Ready for Dynamic Implementation)
-        const searchInput = document.getElementById('news-search');
-        const categoryFilter = document.getElementById('category-filter');
-        const sortFilter = document.getElementById('sort-filter');
-        const newsCards = document.querySelectorAll('.news-card');
+        // // News Filtering (Ready for Dynamic Implementation)
+        // const searchInput = document.getElementById('news-search');
+        // const categoryFilter = document.getElementById('category-filter');
+        // const sortFilter = document.getElementById('sort-filter');
+        // const newsCards = document.querySelectorAll('.news-card');
 
-        // Filter function
-        function filterNews() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const category = categoryFilter.value;
-            const sort = sortFilter.value;
+        // // Filter function
+        // function filterNews() {
+        //     const searchTerm = searchInput.value.toLowerCase();
+        //     const category = categoryFilter.value;
+        //     const sort = sortFilter.value;
 
-            newsCards.forEach(card => {
-                const cardCategory = card.dataset.category;
-                const cardTitle = card.querySelector('.news-card-title').textContent.toLowerCase();
-                const cardExcerpt = card.querySelector('.news-card-excerpt').textContent.toLowerCase();
+        //     newsCards.forEach(card => {
+        //         const cardCategory = card.dataset.category;
+        //         const cardTitle = card.querySelector('.news-card-title').textContent.toLowerCase();
+        //         const cardExcerpt = card.querySelector('.news-card-excerpt').textContent.toLowerCase();
 
-                // Category filter
-                const categoryMatch = category === 'all' || cardCategory === category;
+        //         // Category filter
+        //         const categoryMatch = category === 'all' || cardCategory === category;
                 
-                // Search filter
-                const searchMatch = cardTitle.includes(searchTerm) || cardExcerpt.includes(searchTerm);
+        //         // Search filter
+        //         const searchMatch = cardTitle.includes(searchTerm) || cardExcerpt.includes(searchTerm);
 
-                // Show/hide
-                if (categoryMatch && searchMatch) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+        //         // Show/hide
+        //         if (categoryMatch && searchMatch) {
+        //             card.style.display = 'flex';
+        //         } else {
+        //             card.style.display = 'none';
+        //         }
+        //     });
 
-            // Sort (simplified for demo)
-            if (sort === 'newest' || sort === 'oldest') {
-                // Would sort by data-date attribute in production
-            } else if (sort === 'popular') {
-                // Would sort by data-popularity attribute in production
-            }
-        }
+        //     // Sort (simplified for demo)
+        //     if (sort === 'newest' || sort === 'oldest') {
+        //         // Would sort by data-date attribute in production
+        //     } else if (sort === 'popular') {
+        //         // Would sort by data-popularity attribute in production
+        //     }
+        // }
 
-        // Event listeners
-        searchInput?.addEventListener('input', filterNews);
-        categoryFilter?.addEventListener('change', filterNews);
-        sortFilter?.addEventListener('change', filterNews);
+        // // Event listeners
+        // searchInput?.addEventListener('input', filterNews);
+        // categoryFilter?.addEventListener('change', filterNews);
+        // sortFilter?.addEventListener('change', filterNews);
 
-        // Pagination (Ready for Dynamic Implementation)
-        const pageNumbers = document.querySelectorAll('.page-number');
-        pageNumbers.forEach(btn => {
-            btn.addEventListener('click', () => {
-                pageNumbers.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                // In production: load new page of articles from database
-            });
-        });
+        // // Pagination (Ready for Dynamic Implementation)
+        // const pageNumbers = document.querySelectorAll('.page-number');
+        // pageNumbers.forEach(btn => {
+        //     btn.addEventListener('click', () => {
+        //         pageNumbers.forEach(b => b.classList.remove('active'));
+        //         btn.classList.add('active');
+        //         // In production: load new page of articles from database
+        //     });
+        // });
     </script>
 </body>
+<script src="main.js"></script>
 </html>
