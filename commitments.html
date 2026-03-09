@@ -24,38 +24,59 @@
     <div class="bg-glow"></div>
 
     <!-- ========== FIXED HEADER (SAME AS INDEX.HTML) ========== -->
-    <header id="main-header" class="fixed top-0 w-full z-50 padding-y-6 border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            
-            <!-- LOGO -->
-            <a href="index.html" class="text-2xl tracking-tighter">
-                <span class="logo-main">LA\</span><span class="logo-hidden">SENA</span>
+    <header id="main-header" class="fixed top-0 w-full z-50 border-b border-white/5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        
+        <!-- 1. LOGO (LA\SENA) -->
+        <a href="index.html" class="text-2xl tracking-tighter flex-shrink-0">
+            <span class="logo-main">LA\</span><span class="logo-hidden">SENA</span>
+        </a>
+
+        <!-- 2. DESKTOP NAVIGATION (Hidden on mobile) -->
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="research.html" class="nav-link">Research</a>
+            <a href="economicFutures.html" class="nav-link">Economic Futures</a>
+            <a href="commitments.html" class="nav-link">Commitments</a>
+            <a href="learn.html" class="nav-link">Learn</a>
+            <a href="news.html" class="nav-link">News</a>
+        </nav>
+
+        <!-- 3. DESKTOP CTA + MOBILE TOGGLE -->
+        <div class="flex items-center gap-4">
+            <!-- Desktop CTA Button -->
+            <a href="#try" class="hidden md:inline-block px-5 py-2 text-sm font-semibold text-white bg-blue-600 rounded hover:bg-blue-700 transition-colors">
+                Try Laicena
             </a>
-
-            <!-- NAVIGATION MENU -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="research.html" class="nav-link">Research</a>
-                <a href="economicFutures.html" class="nav-link">Economic Futures</a>
-                <a href="commitments.html" class="nav-link active">Commitments</a>
-                <a href="learn.html" class="nav-link">Learn</a>
-                <a href="news.html" class="nav-link">News</a>
-            </nav>
-
-            <!-- CTA BUTTON -->
-            <div>
-                <a href="#try" class="hidden md:inline-block px-5 py-2 text-sm font-semibold text-white bg-blue-600 rounded hover:bg-blue-700 transition-colors">
-                    Try Laicena
-                </a>
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden text-white mobile-menu-btn" aria-label="Toggle menu">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors" aria-label="Toggle menu" aria-expanded="false">
+                <!-- Hamburger Icon -->
+                <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <!-- Close Icon (hidden by default) -->
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
         </div>
-    </header>
+    </div>
+
+    <!-- 4. MOBILE MENU (Hidden by default, slides down) -->
+    <div id="mobile-menu" class="md:hidden hidden bg-black/95 backdrop-blur-lg border-t border-white/10">
+        <div class="px-6 py-4 space-y-2">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="research.html" class="mobile-nav-link">Research</a>
+            <a href="economicFutures.html" class="mobile-nav-link">Economic Futures</a>
+            <a href="commitments.html" class="mobile-nav-link">Commitments</a>
+            <a href="learn.html" class="mobile-nav-link">Learn</a>
+            <a href="news.html" class="mobile-nav-link">News</a>
+            <!-- Mobile CTA Button -->
+            <a href="#try" class="mobile-cta-btn">Try Laicena</a>
+        </div>
+    </div>
+</header>
 
     <!-- ========== COMMITMENTS CONTENT ========== -->
     <section class="commitments-page">
