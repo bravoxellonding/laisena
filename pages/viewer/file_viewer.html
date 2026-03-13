@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Viewer</title>
+  <style>
+    .viewer-container { 
+      width: 100%; 
+      height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+    }
+    .viewer-header {
+      padding: 1rem;
+      background: #f8f9fa;
+      border-bottom: 1px solid #dee2e6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pdf-frame { 
+      flex: 1; 
+      border: none; 
+      width: 100%; 
+    }
+    .loading { 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      height: 100%; 
+      color: #666; 
+    }
+  </style>
+</head>
+<body>
+  <div class="viewer-container">
+    <div class="viewer-header">
+      <h2 id="doc-title">Loading...</h2>
+      <button onclick="window.close()" class="btn-close">✕ Close</button>
+    </div>
+    <div id="viewer-content" class="loading">Loading document...</div>
+  </div>
+
+  <script type="module">
+    import { loadDocumentMetadata, renderPdfViewer } from '/utils/pdfLoader.js';
+    
+    // Extract fileId from URL: /viewer/STA-320-lecture-1-2
+    const fileId = window.location.pathname.split('/').pop();
+    
+    async function initViewer() {
+      try {
+        // Load metadata from registry (scalable!)
+        const metadata = await loadDocumentMetadata(fileId);
+        document.getElementById('doc-title').textContent = metadata.title;
+        
+        // Render the appropriate viewer based on file type
+        await renderPdfViewer('viewer-content', metadata.url, {
+          embedMode: 'FULL_WINDOW', // or 'SIZED_CONTAINER'
+          showDownload: false,      // Control user actions
+          showPrint: metadata.allowPrint ?? true
+        });
+      } catch (error) {
+        document.getElementById('viewer-content').innerHTML = 
+          `<p style="color:red">Error loading document: ${error.message}</p>`;
+      }
+    }
+    
+    initViewer();
+    export async function loadDocumentMetadata(fileId) {
+  const response = await fetch('/config/documents.json');
+  const config = await response.json();
+  const doc = config.documents[fileId];
+  if (!doc) throw new Error(`Document "${fileId}" not found`);
+  return doc;
+}
+  </script>
+</body>
+</html>

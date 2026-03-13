@@ -1,0 +1,20 @@
+{
+  "documents": {
+    "STA-320-lecture-1-2": {
+      "url": "assets/documents/STA 320 lecture 1-2.pdf",
+      "title": "STA 320: Lecture 1-2 Notes",
+      "description": "Introduction to statistical inference",
+      "type": "pdf",
+      "permissions": {
+        "print": true,
+        "download": false,
+        "annotate": false
+      },
+      "metadata": {
+        "course": "STA 320",
+        "week": 1,
+        "instructor": "Dr. Smith"
+      }
+    }
+  }
+}
