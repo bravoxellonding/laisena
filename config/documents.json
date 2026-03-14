@@ -7,8 +7,8 @@
       "type": "pdf",
       "permissions": {
         "print": true,
-        "download": false,
-        "annotate": false
+        "download": true,
+        "annotate": true
       },
       "metadata": {
         "course": "STA 320",

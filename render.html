@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render the PDF</title>
+    <!-- Include the main PDF.js library script -->
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@5.5.207/build/pdf.min.mjs"></script>
+</head>
+<body>
+    <script>
+        // Set the worker source path
+        // This tells PDF.js where to find the worker script, which is necessary for it to function correctly
+        pdfjslib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net';
+        pdfjslib.getDocument('assets/bravinw_cv.pdf').promise.then(doc => {
+            console.log('pages :', doc.numPages);
+        });
+    </script>
+</body>
+</html>
